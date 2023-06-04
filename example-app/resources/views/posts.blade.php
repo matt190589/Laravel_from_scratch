@@ -4,14 +4,16 @@
 <link rel="stylesheet" href="/app.css">
 
 <body>
-    <?php foreach ($posts as $post) : ?>
+    @foreach ($posts as $post)
     <article>
-        <a href="/posts/<?= $post->slug; ?>">
-            <h1><?= $post->title; ?></h1>
+        <h1>
+             <a href="/posts/{{ $post->slug}}">
+           {{ $post->title}}
         </a>
+        </h1>
         <div>
-            <?= $post->body; ?>
+           {{ $post->excerpt}}
         </div>
     </article>
-    <?php endforeach; ?>
+    @endforeach
 </body>
