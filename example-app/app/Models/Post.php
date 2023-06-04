@@ -56,4 +56,16 @@ class Post
         //For all the blog posts that exist, find the one with the slug that matches the one that was requested
         return static::all()->firstWhere('slug', $slug);
     }
+
+
+    public static function findOrFail($slug)
+    {
+        //For all the blog posts that exist, find the one with the slug that matches the one that was requested
+        $post = static::find($slug);
+
+        if (!$post) {
+            throw new ModelNotFoundException();
+        }
+        return $post;
+    }
 }
