@@ -12,6 +12,9 @@ class Post extends Model
     protected $guarded = [];
     //can also use $guarded which is the opposite of $fillable. Every is available unless stated.
 
+    // protected $with = ['category', 'author']; 
+    //defaults to replace eager load stating in routes
+
     public function category()
     {
         return $this->belongsTo(Category::class);
